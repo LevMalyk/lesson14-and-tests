@@ -35,7 +35,11 @@ import prettytable
 
 con = sqlite3.connect("../netflix.db")
 cur = con.cursor()
-sqlite_query = ("")  # TODO измените код запроса
+sqlite_query = """
+                SELECT title, `cast`, release_year
+                FROM netflix
+                WHERE director LIKE "%Guy Ritchie%" AND release_year < 2011
+"""
 result = cur.execute(sqlite_query)
 
 # не удаляйте код дальше, он нужен для вывода результата
@@ -47,3 +51,4 @@ mytable.max_width = 30
 
 if __name__ == '__main__':
     print(mytable)
+# 123
